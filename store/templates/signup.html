@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+    
+    <div class="p-3 m-3">
+
+        
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+            <!-- <hr> -->
+            <hr>
+            </div>
+            <h3 class="alert alert-success rounded-pill" style="text-align:center">Create an Account</h3>
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <ul>
+                <!-- firstname -->
+                   <li> <label for="">First Name&nbsp;</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" 
+                     placeholder=""></li>
+
+                <!-- last name -->
+                <li><label for="">Last Name&nbsp;</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"></li>
+
+                <!-- phone -->
+                <li> <label for="">Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="9876543210"></li>
+                <!-- email -->
+                <li><label for="">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                     placeholder="abc@gmail.com"></li>
+
+
+                <!-- password -->
+                <li><label for="">Password&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""></li>
+<p>&nbsp;</p>
+
+                <hr>
+                <button type="submit" class="btn btn-sm btn-success col-lg-12">Create an account</button>
+            </form>
+
+{% endblock %}

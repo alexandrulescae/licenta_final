@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+
+  <title>E-commerce Website</title>
+
+ 
+</head>
+<body style="background-color:powderblue;">
+
+      <ul>
+        <li>
+          <a href="/store">Store</a>
+        </li>
+          </ul>
+      <ul>
+        <li>
+          <a  href="/cart">Cart {{request.session.cart.keys|length}}</a>
+        </li>
+
+        {% if request.session.customer %}
+        
+        <li>
+          <a href="/orders">Orders</a>
+        </li>
+        <li>
+          <a  href="/logout">Logout</a>
+        </li>
+        {% else %}
+       
+        <li>
+          <a href="/signup">Signup</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/admin">Login as seller</a>
+        </li>
+        {% endif %}
+
+
+      </ul>
+
+
+    </div>
+  </nav>
+  {% block content %}{% endblock %}
+</body>
+
+</html>

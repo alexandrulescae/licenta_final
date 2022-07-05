@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+            <hr>
+            <h3 class="alert alert-light rounded-pill" style="text-align:center" >Login</h3>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                {% if error%}
+                    {{error}}
+                {% endif %}
+
+                <!-- email -->
+                    <label for="">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    placeholder="lescae@gmail.com">
+                    <p>&nbsp;</p>
+                    <!-- all products -->
+
+                <!-- password -->
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id="">
+                    <p>&nbsp;</p>
+
+                <!--Log me in button-->
+                    <input type="checkbox" id="exampleCheck1">
+                    <label  for="exampleCheck1">Log me in</label>
+                <hr>
+                <button type="submit">Login</button>  
+            </form>
+{% endblock %}
