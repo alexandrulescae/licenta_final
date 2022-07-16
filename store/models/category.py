@@ -6,7 +6,7 @@ class Category(models.Model):
      verbose_name = "Category"
      verbose_name_plural = "Categories"
 
-    #@staticmethod
+    @staticmethod
     def get_all_categories():
         return Category.objects.all()
 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
             <hr>
-            <h3 class="alert alert-light rounded-pill" style="text-align:center" >Login</h3>
+            <h3 style="text-align:center" >Login</h3>
             <form action="/login" method="POST">
                 {% csrf_token %}
                 {% if error%}
@@ -23,9 +23,7 @@
                     id="">
                     <p>&nbsp;</p>
 
-                <!--Log me in button-->
-                    <input type="checkbox" id="exampleCheck1">
-                    <label  for="exampleCheck1">Log me in</label>
+
                 <hr>
                 <button type="submit">Login</button>  
             </form>

@@ -5,10 +5,9 @@ from django.views import View
 
 
 class Login(View):
-    return_url = None
+    #return_url = None
 
     def get(self, request):
-        Login.return_url = request.GET.get ('return_url')
         return render (request, 'login.html')
 
     def post(self, request):
@@ -21,17 +20,12 @@ class Login(View):
             if flag:
                 request.session['customer'] = customer.id
 
-                if Login.return_url:
-                    return HttpResponseRedirect (Login.return_url)
-                else:
-                    Login.return_url = None
-                    return redirect ('homepage')
+                return redirect ('homepage')
             else:
                 error_message = 'Invalid !!'
         else:
             error_message = 'Invalid !!'
 
-        print (email, password)
         return render (request, 'login.html', {'error': error_message})
 
 def logout(request):
