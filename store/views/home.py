@@ -29,7 +29,6 @@ class Index(View):
             cart[product] = 1
 
         request.session['cart'] = cart
-        print('cart' , request.session['cart'])
         return redirect('homepage')
 
 
@@ -42,19 +41,18 @@ def store(request):
     cart = request.session.get('cart')
     if not cart:
         request.session['cart'] = {}
-    products = None
+    #products = None
     categories = Category.get_all_categories()
     categoryID = request.GET.get('category')
     if categoryID:
         products = Products.get_all_products_by_categoryid(categoryID)
     else:
-        products = Products.get_all_products();
+        products = Products.get_all_products()
 
     data = {}
     data['products'] = products
     data['categories'] = categories
-
-    print('you are : ', request.session.get('email'))
+    
     return render(request, 'index.html', data)
 
 

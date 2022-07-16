@@ -7,7 +7,7 @@ from .models.orders import Order
 
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category']
-    verbose_name_plural = 'Categories'
+    
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -17,11 +17,11 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ['email']
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['phone', 'address', 'status']
+    list_display = ['id', 'address', 'status']
 
 
 admin.site.register(Products,AdminProduct)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Order, OrderAdmin)
 
