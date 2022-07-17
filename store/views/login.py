@@ -22,9 +22,9 @@ class Login(View):
 
                 return redirect ('homepage')
             else:
-                error_message = 'Invalid !!'
+                error_message = 'Invalid !! Wrong password or email'
         else:
-            error_message = 'Invalid !!'
+            error_message = 'Invalid !! Wrong password or email'
 
         return render (request, 'login.html', {'error': error_message})
 
