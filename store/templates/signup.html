@@ -25,17 +25,19 @@
                 <!-- firstname -->
                    <li> <label for="">First Name&nbsp;</label>
                     <input type="text" name="firstname"
+                    placeholder="Smith"
                      id="" value="{{values.first_name}}" class="form-control form-control-sm" 
                      placeholder=""></li>
 
                 <!-- last name -->
                 <li><label for="">Last Name&nbsp;</label>
                     <input type="text" name="lastname" 
+                    placeholder="John"
                     id="" value="{{values.last_name}}" class="form-control form-control-sm"></li>
 
                 <!-- phone -->
                 <li> <label for="">Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input type="text" name="phone" 
+                    <input type="text" name="phone" maxlength="10" minlength="10" pattern="[0-9]+"
                     id="" class="form-control form-control-sm"
                     value="{{values.phone}}"
                     placeholder="9876543210"></li>

@@ -11,6 +11,20 @@ class Index(View):
         product = request.POST.get('product')
         remove = request.POST.get('remove')
         cart = request.session.get('cart')
+        
+        print(product, type(product))
+        session = {
+            "cart": {
+                "1": 5,
+                "2": 10,
+                "3": 100
+            },
+            "mesaje": {
+                "gigel": "salut",
+                "fanica": "bai"
+            }
+        }
+
         if cart:
             quantity = cart.get(product)
             if quantity:
